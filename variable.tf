@@ -13,7 +13,7 @@ variable "resource_group_name" {
   default     = "myappdb-rg"
 }
 
-variable "location" {
+variable "region" {
   description = "The location/region where the database and server are created. Changing this forces a new resource to be created."
 }
 
