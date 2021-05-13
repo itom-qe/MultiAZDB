@@ -14,7 +14,7 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_sql_database" "db" {
   name                             = "${var.db_name}"
   resource_group_name              = "${azurerm_resource_group.rg.name}"
-  location                         = "${var.location}"
+  location                         = "${var.region}"
   edition                          = "${var.db_edition}"
   collation                        = "${var.collation}"
   server_name                      = "${azurerm_sql_server.server.name}"
@@ -26,7 +26,7 @@ resource "azurerm_sql_database" "db" {
 resource "azurerm_sql_server" "server" {
   name                         = "${var.db_name}-sqlsvr"
   resource_group_name          = "${azurerm_resource_group.rg.name}"
-  location                     = "${var.location}"
+  location                     = "${var.region}"
   version                      = "${var.server_version}"
   administrator_login          = "${var.sql_admin_username}"
   administrator_login_password = "${var.sql_password}"
@@ -45,7 +45,7 @@ resource "azurerm_sql_firewall_rule" "fw" {
 resource "azurerm_sql_database" "db1" {
   name                             = "${var.db1_name}"
   resource_group_name              = "${azurerm_resource_group.rg.name}"
-  location                         = "${var.location}"
+  location                         = "${var.region}"
   edition                          = "${var.db_edition}"
   collation                        = "${var.collation}"
   server_name                      = "${azurerm_sql_server.server1.name}"
@@ -56,7 +56,7 @@ resource "azurerm_sql_database" "db1" {
 resource "azurerm_sql_server" "server1" {
   name                         = "${var.db1_name}-sqlsvr1"
   resource_group_name          = "${azurerm_resource_group.rg.name}"
-  location                     = "${var.location}"
+  location                     = "${var.region}"
   version                      = "${var.server_version}"
   administrator_login          = "${var.sql_admin_username}"
   administrator_login_password = "${var.sql_password}"
