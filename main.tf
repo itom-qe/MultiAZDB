@@ -83,7 +83,7 @@ resource "azurerm_sql_database" "db2" {
   requested_service_objective_name = "${var.service_objective_name}"
   tags                             = "${var.tags}"
 }
-resource "azurerm_sql_server" "server1" {
+resource "azurerm_sql_server" "server2" {
   name                         = "${var.db2_name}-sqlsvr2"
   resource_group_name          = "${azurerm_resource_group.rg.name}"
   location                     = "${var.region}"
@@ -93,7 +93,7 @@ resource "azurerm_sql_server" "server1" {
   tags                         = "${var.tags}"
 }
 
-resource "azurerm_sql_firewall_rule" "fw1" {
+resource "azurerm_sql_firewall_rule" "fw2" {
   name                = "${var.db2_name}-fwrules2"
   resource_group_name = "${azurerm_resource_group.rg.name}"
   server_name         = "${azurerm_sql_server.server2.name}"
