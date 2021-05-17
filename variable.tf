@@ -64,12 +64,16 @@ variable "tags" {
   type        = "map"
 
   default = {
-    tag1 = ""
-    tag2 = ""
+    tag1 = "Sundaresan"
+    tag2 = "CPGQE"
   }
 }
 
 variable "db1_name" {
+  description = "The name of the database to be created."
+}
+
+variable "db2_name" {
   description = "The name of the database to be created."
 }
 
